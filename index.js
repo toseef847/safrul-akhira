@@ -23,7 +23,7 @@ app.use(
 
 app.use("/api/users", userRoutes);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
   console.log(`Server started listening on port ${PORT}`);
 });

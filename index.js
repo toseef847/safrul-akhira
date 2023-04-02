@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const database = require("./config/database");
+const cors = require("cors");
 require("dotenv").config();
 
 app.use(bodyParser.json());
@@ -10,6 +11,15 @@ const userRoutes = require("./routes/User.routes");
 
 // connect mongodb
 database.connectToDb();
+
+app.use(
+  cors({
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    optionsSuccessStatus: 204,
+  })
+);
 
 app.use("/api/users", userRoutes);
 

@@ -90,6 +90,7 @@ exports.login = async (req, res) => {
 
     // Generate a JWT
     const token = userExists.generateToken({
+      id: userExists._id,
       username: userExists.username,
       email: userExists.email,
       role: userExists.role,
